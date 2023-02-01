@@ -5,7 +5,6 @@ from pathlib import Path
 import os
 import pandas as pd
 from functools import lru_cache
-import numpy as np
 
 
 def _get_credentials():
