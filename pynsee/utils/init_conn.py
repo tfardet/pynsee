@@ -54,6 +54,11 @@ def init_conn(insee_key, insee_secret, http_proxy="", https_proxy=""):
     home = str(Path.home())
     pynsee_credentials_file = home + "/" + "pynsee_credentials.csv"
 
+    proxies = {
+        "http": os.environ.get("http_proxy", pynsee._config["http_proxy"]),
+        "https": os.environ.get("https_proxy", pynsee._config["https_proxy"])
+    }
+
     d = pd.DataFrame(
         {
             "insee_key": insee_key,
@@ -71,38 +76,27 @@ def init_conn(insee_key, insee_secret, http_proxy="", https_proxy=""):
     insee_key = pynsee._config["insee_key"]
     insee_secret = pynsee._config["insee_secret"]
 
-<<<<<<< HEAD
     token = _get_token(insee_key, insee_secret)
-=======
-    token = None
-    try:
-        token = _get_token_from_insee(insee_key, insee_secret)
-    except Exception:
-        pass
->>>>>>> 3cee35d (Fix get_location, add token logging + alt text)
 
     if not token:
         raise ValueError(
             "!!! Token is missing, please check that insee_key and "
             "insee_secret are correct !!!")
-<<<<<<< HEAD
-
-    proxies = {
-        "http": os.environ.get("http_proxy", pynsee._config["http_proxy"]),
-        "https": os.environ.get("https_proxy", pynsee._config["https_proxy"])
-    }
-=======
     else:
-        logger.info("Token has been created.")
-
-    try:
-        proxies = {
-            "http": os.environ["http_proxy"],
-            "https": os.environ["https_proxy"],
+        headers = {
+            "Accept": "application/xml",
+            "Authorization": "Bearer " + token
         }
-    except KeyError:
-        proxies = {"http": "", "https": ""}
->>>>>>> 3cee35d (Fix get_location, add token logging + alt text)
+
+        url_test = "https://api.insee.fr/series/BDM/V1/data/CLIMAT-AFFAIRES"
+
+        request_test = requests.get(
+            url_test, proxies=proxies, headers=headers, verify=False)
+
+        if request_test.status_code != 200:
+            raise ValueError(f"This token is not working: {token}")
+
+    pynsee._config["token"] = token
 
     queries = [
         "https://api.insee.fr/series/BDM/V1/dataflow/FR1/all",
