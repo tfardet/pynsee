@@ -7,7 +7,6 @@ import urllib3
 import time
 
 from pynsee.utils._get_token import _get_token
-from pynsee.utils._get_credentials import _get_credentials
 from pynsee.utils.requests_params import _get_requests_session, _get_requests_headers, _get_requests_proxies
 
 import logging
@@ -29,7 +28,6 @@ CODES = {
     503: "Service Unavailable",
 }
 
-
 def _request_insee(
     api_url=None, sdmx_url=None, file_format="application/xml", print_msg=True
 ):
@@ -38,8 +36,6 @@ def _request_insee(
     # api_url = 'https://api.insee.fr/series/BDM/V1/data/CLIMAT-AFFAIRES/?firstNObservations=4&lastNObservations=1'
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-    keys = _get_credentials()
-
     if api_url is not None:
         logger.debug(api_url)
     elif sdmx_url is not None:
@@ -47,20 +43,16 @@ def _request_insee(
 
     proxies = _get_requests_proxies()
 
-    try:
-        print_url = os.environ["pynsee_print_url"]
-        if print_url == "True":
-            print(api_url)
-    except:
-        pass
+    print_url = os.environ.get("pynsee_print_url", False)
+
+    if print_url in ("True", "true", "1"):
+        print(api_url)
         
     # force sdmx use with a system variable
-    try:
-        pynsee_use_sdmx = os.environ["pynsee_use_sdmx"]
-        if pynsee_use_sdmx == "True":
-            api_url = None
-    except:
-        pass
+    pynsee_use_sdmx = os.environ.get("pynsee_use_sdmx", False)
+
+    if pynsee_use_sdmx in ("True", "true", "1"):
+        api_url = None
 
     # if api_url is provided, it is used first,
     # and the sdmx url is used as a backup in two cases
@@ -70,13 +62,7 @@ def _request_insee(
     # if api url is missing sdmx url is used
 
     if api_url is not None:
-        if keys is not None:
-            insee_key = keys["insee_key"]
-            insee_secret = keys["insee_secret"]
-
-            token = _get_token(insee_key, insee_secret)
-        else:
-            token = None
+        token = _get_token()
 
         if token is not None:
             user_agent = _get_requests_headers()
@@ -134,13 +120,12 @@ def _request_insee(
 
         else:
             # token is None
-            commands = "\n\ninit_conn(insee_key='my_insee_key', insee_secret='my_insee_secret')\n"
             msg = (
                 "Token missing, please check your credentials "
                 "on api.insee.fr !\n"
                 "Please do the following to use your "
-                f"credentials: {commands}\n\n"
-                "If your token still does not work, please try to clear "
+                "credentials:\n\ninit_conn(insee_token='my_insee_token')\n"
+                "\nIf your token still does not work, please try to clear "
                 "the cache :\n "
                 "from pynsee.utils import clear_all_cache; clear_all_cache()\n"
             )

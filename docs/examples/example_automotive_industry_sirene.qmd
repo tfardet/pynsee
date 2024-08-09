@@ -135,17 +135,17 @@ plt.show()
 ## Prerequisite {#sec-config}
 
 - Subscribe to https://api.insee.fr/catalogue/ and get your credentials!
-- Save your credentials with `init_conn` function :
+- Save your credentials with `init_conn` function:
 
 ```{python}
 #| eval: false
 
 # Initialize key
 from pynsee.utils.init_conn import init_conn
-init_conn(insee_key="my_insee_key", insee_secret="my_insee_secret")
+init_conn(insee_token="my_insee_token")
 ```
 
-- Beware : any change to the keys should be tested after having cleared the cache
+- Beware: any change to the keys should be tested after clearing the cache
 
 ```{python}
 #| eval: false

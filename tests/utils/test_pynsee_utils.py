@@ -14,7 +14,6 @@ from pynsee.utils._get_credentials import _get_credentials
 from pynsee.utils._request_insee import _request_insee
 from pynsee.utils.clear_all_cache import clear_all_cache
 from pynsee.utils.init_conn import init_conn
-from pynsee.utils._get_credentials import _get_credentials
 
 test_SDMX = True
 

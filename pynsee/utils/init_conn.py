@@ -1,29 +1,36 @@
 # -*- coding: utf-8 -*-
 # Copyright : INSEE, 2021
 
-import os
-from pathlib import Path
-import pandas as pd
-import requests
-import urllib3
-import time
-
-from pynsee.utils._get_token_from_insee import _get_token_from_insee
-from pynsee.utils._get_credentials import _get_credentials
-from pynsee.utils.requests_params import _get_requests_session, _get_requests_headers, _get_requests_proxies
-
-
+import json
 import logging
+import os
+import requests
+import time
+import warnings
+
+from platformdirs import user_config_dir
+import urllib3
+
+from pynsee.utils.requests_params import (
+    _get_requests_session, _get_requests_headers, _get_requests_proxies)
+
 
 logger = logging.getLogger(__name__)
 
 
-def init_conn(insee_key, insee_secret, http_proxy="", https_proxy=""):
+def opener(path, flags):
+    return os.open(path, flags, 0o600)
+
+
+def init_conn(
+    insee_token: str,
+    http_proxy: str = "",
+    https_proxy: str = ""
+) -> None:
     """Save your credentials to connect to INSEE APIs, subscribe to api.insee.fr
 
     Args:
-        insee_key (str): user's key
-        insee_secret (str): user's secret
+        insee_token (str): user's token for the INSEE API
         http_proxy (str, optional): Proxy server address, e.g. 'http://my_proxy_server:port'. Defaults to "".
         https_proxy (str, optional): Proxy server address, e.g. 'http://my_proxy_server:port'. Defaults to "".
 
@@ -32,56 +39,22 @@ def init_conn(insee_key, insee_secret, http_proxy="", https_proxy=""):
 
     Examples:
         >>> from pynsee.utils.init_conn import init_conn
-        >>> init_conn(insee_key="my_insee_key", insee_secret="my_insee_secret")
+        >>> init_conn(insee_token="my_insee_token")
         >>> #
         >>> # if the user has to use a proxy server use http_proxy and https_proxy arguments as follows:
         >>> from pynsee.utils.init_conn import init_conn
-        >>> init_conn(insee_key="my_insee_key",
-        >>>           insee_secret="my_insee_secret",
+        >>> init_conn(insee_token="my_insee_token",
         >>>           http_proxy="http://my_proxy_server:port",
         >>>           https_proxy="http://my_proxy_server:port")
         >>> #
         >>> # Alternativety you can use directly environment variables as follows:
         >>> # Beware not to commit your credentials!
         >>> import os
-        >>> os.environ['insee_key'] = 'my_insee_key'
-        >>> os.environ['insee_secret'] = 'my_insee_secret'
+        >>> os.environ['insee_token'] = 'my_insee_toke,'
         >>> os.environ['http_proxy'] = "http://my_proxy_server:port"
         >>> os.environ['https_proxy'] = "http://my_proxy_server:port"
     """
     logger.debug("SHOULD GET LOGGING")
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    home = Path.home()
-    pynsee_credentials_file = os.path.join(home, "pynsee_credentials.csv")
-
-    d = pd.DataFrame(
-        {
-            "insee_key": insee_key,
-            "insee_secret": insee_secret,
-            "http_proxy": http_proxy,
-            "https_proxy": https_proxy,
-        },
-        index=[0],
-    )
-    d.to_csv(pynsee_credentials_file)
-
-    keys = _get_credentials()
-
-    insee_key = keys["insee_key"]
-    insee_secret = keys["insee_secret"]
-
-    token = None
-    try:
-        token = _get_token_from_insee(insee_key, insee_secret)
-    except:
-        pass
-
-    if token is None:
-        raise ValueError(
-            "!!! Token is missing, please check insee_key and insee_secret are correct !!!"
-        )
-    else:
-        logger.info("Token has been created")
 
     proxies = _get_requests_proxies()
 
@@ -109,20 +82,24 @@ def init_conn(insee_key, insee_secret, http_proxy="", https_proxy=""):
     for q in range(len(queries)):
         headers = {
             "Accept": file_format[q],
-            "Authorization": "Bearer " + token,
+            "Authorization": "Bearer " + insee_token,
             'User-Agent': user_agent['User-Agent']
         }
         api_url = queries[q]
-        
-        results = session.get(
-            api_url, proxies=proxies, headers=headers, verify=False
-        )
-        
+
+        with warnings.catch_warnings():
+            urllib3.disable_warnings(
+                urllib3.exceptions.InsecureRequestWarning)
+
+            results = session.get(
+                api_url, proxies=proxies, headers=headers, verify=False
+            )
+
         code = results.status_code
-        
+
         if code == 429:
             time.sleep(10)
-    
+
             results = requests.get(api_url,
                                   proxies=proxies,
                                   headers=headers,
@@ -132,14 +109,36 @@ def init_conn(insee_key, insee_secret, http_proxy="", https_proxy=""):
             logger.critical(
                 f"Please subscribe to {apis[q]} API on api.insee.fr !"
             )
+
         list_requests_status += [results.status_code]
 
     session.close()
-    
+
+    config_file = os.path.join(
+        user_config_dir("pynsee", ensure_exists=True),
+        "config.json"
+    )
+
     if all([sts == 200 for sts in list_requests_status]):
         logger.info(
             "Subscription to all INSEE's APIs has been successfull\n"
-            "Unless the user wants to change key or secret, using this "
-            "function is no longer needed as the credentials to get the token "
-            "have been saved locally here:\n" + str(pynsee_credentials_file)
+            "Unless the user wants to change the insee_token, using this function "
+            "is no longer needed as the insee_token will been saved locally here:\n"
+            f"{config_file}"
         )
+    else:
+        raise ValueError(
+            "Invalid insee_token, please provide a correct one or subscribe to the "
+            "missing APIs")
+
+    # save config
+    config = {
+        "insee_token": insee_token,
+        "http_proxy": http_proxy,
+        "https_proxy": https_proxy
+    }
+
+    with open(config_file, 'w', opener=opener) as f:
+        json.dump(config, f)
+
+    logger.info("Token has been saved.")

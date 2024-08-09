@@ -35,12 +35,12 @@ pip install pynsee[full]
 # pip install .[full]
 
 # Subscribe to api.insee.fr and get your credentials!
-# Save your credentials with init_conn function :      
+# Save your token with init_conn function:
 from pynsee.utils.init_conn import init_conn
-init_conn(insee_key="my_insee_key", insee_secret="my_insee_secret")
+init_conn(insee_token="my_insee_token")
 
-# Beware : any change to the keys should be tested after having cleared the cache
-# Please do : from pynsee.utils import clear_all_cache; clear_all_cache()
+# Beware: any change to the keys should be tested after clearing the cache
+# Please do: from pynsee.utils import clear_all_cache; clear_all_cache()
 ```
 
 ##  Data Search and Collection Advice
@@ -145,19 +145,18 @@ fig.savefig('pop_france.svg',
 
 # Use the proxy_server argument of the init_conn function to change the proxy server address   
 from pynsee.utils.init_conn import init_conn
-init_conn(insee_key="my_insee_key",
-         insee_secret="my_insee_secret",
-         http_proxy="http://my_proxy_server:port",
-         https_proxy="http://my_proxy_server:port")
+init_conn(
+    insee_token="my_insee_token",
+    http_proxy="http://my_proxy_server:port",
+    https_proxy="http://my_proxy_server:port")
 
 # Beware : any change to the keys should be tested after having cleared the cache
 # Please do : from pynsee.utils import *; clear_all_cache()
 
 # Alternativety you can use directly environment variables as follows. 
-# Beware not to commit your credentials!
+# Beware not to commit your token!
 import os
-os.environ['insee_key'] = 'my_insee_key'
-os.environ['insee_secret'] = 'my_insee_secret'
+os.environ['insee_token'] = 'my_insee_token'
 os.environ['http_proxy'] = "http://my_proxy_server:port"
 os.environ['https_proxy'] = "http://my_proxy_server:port"
 

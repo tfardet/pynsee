@@ -1,11 +1,16 @@
 
+import json
 import os
+
 import requests
+
+from platformdirs import user_config_dir
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 
-def _get_requests_headers():
 
+def _get_requests_headers() -> dict[str, str]:
+    ''' Return the use agent '''
     username = os.environ.get("USERNAME", "username")
     
     headers = {
@@ -13,8 +18,9 @@ def _get_requests_headers():
     }
     return headers
 
-def _get_requests_session():
-    
+
+def _get_requests_session() -> requests.Session:
+    ''' Return a session to make multiple requests '''
     session = requests.Session()
     retry = Retry(connect=3, backoff_factor=1)
     adapter = HTTPAdapter(max_retries=retry)
@@ -23,9 +29,26 @@ def _get_requests_session():
 
     return session
 
-def _get_requests_proxies():
-    
-    proxies = {"http": os.environ.get("http_proxy", ""),
-               "https": os.environ.get("https_proxy", "")}
-        
-    return proxies
+
+def _get_requests_proxies() -> dict[str, str]:
+    ''' Return the proxies '''
+    http_proxy = os.environ.get("http_proxy", "")
+    https_proxy = os.environ.get("https_proxy", http_proxy)
+
+    if not https_proxy:
+        config_file = os.path.join(
+            user_config_dir("pynsee"),
+            "config.json"
+        )
+
+        if os.path.isfile(config_file):
+            with open(config_file, "r") as f:
+                config = json.load(f)
+
+            http_proxy = config["http_proxy"]
+            https_proxy = config["https_proxy"]
+
+    return {
+        "http": http_proxy,
+        "https": https_proxy
+    }

@@ -83,10 +83,10 @@ API credentials can be created here : `api.insee.fr <https://api.insee.fr/catalo
    # Save once and for all your credentials with init_conn function.
    # Then, functions requiring authentication will use the credentials saved locally on your machine by innit_conn
    from pynsee.utils.init_conn import init_conn
-   init_conn(insee_key="my_insee_key", insee_secret="my_insee_secret")
+   init_conn(insee_token="my_insee_token")
 
-   # Beware : any change to the keys should be tested after having cleared the cache
-   # Please do : from pynsee.utils import clear_all_cache; clear_all_cache()
+   # Beware: any change to the keys should be tested after having cleared the cache
+   # Please do: from pynsee.utils import clear_all_cache; clear_all_cache()
 
 Data Search and Collection Advice
 ---------------------------------
@@ -187,8 +187,7 @@ How to avoid proxy issues ?
 
    # Use the proxy_server argument of the init_conn function to change the proxy server address   
    from pynsee.utils.init_conn import init_conn
-   init_conn(insee_key="my_insee_key",
-             insee_secret="my_insee_secret",
+   init_conn(insee_token="my_insee_token",
              http_proxy="http://my_proxy_server:port",
              https_proxy="http://my_proxy_server:port")
              
