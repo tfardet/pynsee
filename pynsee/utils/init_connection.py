@@ -70,11 +70,26 @@ def init_conn(
     ) as session:
         try:
             invalid_requests = session._test_connections()
-        except (ValueError, requests.exceptions.RequestException):
-            try:
-                os.remove(CONFIG_FILE)
-            except FileNotFoundError:
-                pass
+        except (ValueError, requests.exceptions.RequestException) as e:
+            # delete config if faulty proxy
+            possible_bad_proxy = (
+                http_proxy is None
+                and session.stored_config.get("http_proxy") is not None
+                or https_proxy is None
+                and session.stored_config.get("https_proxy") is not None
+            )
+
+            if possible_bad_proxy:
+                try:
+                    os.remove(CONFIG_FILE)
+                    raise RuntimeError(
+                        "Request failed, since it might come from a faulty "
+                        "proxy configuration in the config file, the file "
+                        "was deleted, try calling ``init_conn`` again."
+                    ) from e
+                except FileNotFoundError:
+                    pass
+
             raise
 
     if invalid_requests:

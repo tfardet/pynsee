@@ -96,7 +96,7 @@ class PynseeAPISession(requests.Session):
             SIRENE_KEY: sirene_key,
         }
 
-        stored_config = _get_credentials_from_configfile()
+        self.stored_config = _get_credentials_from_configfile()
 
         for k, v in config.items():
             venv = get_env_case_insensitive(k)
@@ -108,7 +108,7 @@ class PynseeAPISession(requests.Session):
                     config[k] = venv
                     _warn_env_credentials(k)
                 else:
-                    config[k] = stored_config.get(k)
+                    config[k] = self.stored_config.get(k)
 
         self.proxies.update(
             {
@@ -524,7 +524,7 @@ class PynseeAPISession(requests.Session):
                 "An error occured", response=results
             )
 
-    def _test_connections(self) -> dict:
+    def _test_connections(self) -> dict[str, int]:
         """
         Test the valid connection to each API.
 
@@ -537,7 +537,7 @@ class PynseeAPISession(requests.Session):
 
         Returns
         -------
-        invalid_requests : dict
+        invalid_requests : dict[str, int]
             Dict of {"api name": response.status_code} for invalid queries.
 
         """
@@ -547,6 +547,7 @@ class PynseeAPISession(requests.Session):
             "Sirene": "https://api.insee.fr/api-sirene/3.11/siret?q=activitePrincipaleUniteLegale:86.10*&nombre=1000",
             "Local Data": "https://api.insee.fr/donnees-locales/donnees/geo-SEXE-DIPL_19@GEO2020RP2017/FE-1.all.all",
         }
+
         invalid_requests = {}
 
         for api, api_url in queries.items():
