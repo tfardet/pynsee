@@ -4,13 +4,8 @@ SPDX-FileCopyrightText: 2025 INSEE
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-[![](https://badge.fury.io/py/pynsee.svg)](https://pypi.org/project/pynsee/)
-([![Tests Status](https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml/badge.svg)](https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml))
-![Coverage Status](https://codecov.io/gh/InseeFrLab/pynsee/branch/main/graph/badge.svg)
-
-<!-- [![](https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml/badge.svg)](https://github.com/InseeFrLab/pynsee/actions)
-[![](https://github.com/InseeFrLab/pynsee/actions/workflows/examples.yml/badge.svg)](https://github.com/InseeFrLab/pynsee/actions) -->
-<!-- [![](https://codecov.io/gh/InseeFrLab/pynsee/branch/master/graph/badge.svg?token=TO96FMWRHK)](https://codecov.io/gh/InseeFrLab/pynsee?branch=master) -->
+[![](https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml/badge.svg)](https://github.com/InseeFrLab/pynsee/actions)
+[![](https://codecov.io/gh/InseeFrLab/pynsee/branch/master/graph/badge.svg?token=TO96FMWRHK)](https://codecov.io/gh/InseeFrLab/pynsee?branch=master)
 [![](https://readthedocs.org/projects/pynsee/badge/?version=latest)](https://pynsee.readthedocs.io/en/latest/?badge=latest)
 [![](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/)
 [![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://pypi.org/project/black/)
