@@ -1,9 +1,14 @@
-import pandas as pd
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import re
 
-from pynsee.utils.requests_session import PynseeAPISession
-from pynsee.utils._make_dataframe_from_dict import _make_dataframe_from_dict
-from pynsee.utils.HiddenPrints import HiddenPrints
+import pandas as pd
+
+from ..utils.requests_session import PynseeAPISession
+from ..utils._make_dataframe_from_dict import _make_dataframe_from_dict
+from ..utils.HiddenPrints import HiddenPrints
 from .sirenedataframe import SireneDataFrame
 
 

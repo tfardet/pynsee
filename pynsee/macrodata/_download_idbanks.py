@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from datetime import date, datetime
+from typing import Optional
 import io
 import logging
 import os
 import re
 import warnings
 import zipfile
-
-from typing import Optional
 
 import pandas as pd
 import urllib3

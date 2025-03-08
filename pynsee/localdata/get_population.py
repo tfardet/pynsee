@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from functools import lru_cache
 
-from pynsee.geodata.get_geodata import get_geodata
+from ..geodata.get_geodata import get_geodata
 
 
 @lru_cache(maxsize=None)

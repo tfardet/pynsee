@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
-import io
-import zipfile
 import importlib
+import io
+import logging
+import zipfile
+
 import pandas as pd
 
-from pynsee.utils.save_df import save_df
+from ..utils.save_df import save_df
 
-import logging
 
 logger = logging.getLogger(__name__)
 

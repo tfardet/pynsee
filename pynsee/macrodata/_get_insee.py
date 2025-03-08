@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
-import io
 from functools import lru_cache
-import pandas as pd
-import xml.dom.minidom
-from tqdm import trange
-
-from pynsee.macrodata._get_date import _get_date
-from pynsee.utils.requests_session import PynseeAPISession
-
 import logging
+import io
+import xml.dom.minidom
+
+from tqdm import trange
+import pandas as pd
+
+from ..macrodata._get_date import _get_date
+from ..utils.requests_session import PynseeAPISession
+
 
 logger = logging.getLogger(__name__)
 

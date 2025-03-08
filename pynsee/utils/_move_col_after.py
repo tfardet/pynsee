@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
+
 def _move_col_after(df, col, col_ref):
     if col in df.columns:
         if col_ref in df.columns:

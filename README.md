@@ -1,7 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2025 INSEE
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
 
 [![](https://badge.fury.io/py/pynsee.svg)](https://pypi.org/project/pynsee/)
-![Tests Status](https://raw.githubusercontent.com/InseeFrLab/pynsee/refs/heads/master/reports/tests-badge.svg)
-![Coverage Status](https://raw.githubusercontent.com/InseeFrLab/pynsee/refs/heads/master/reports/coverage-badge.svg)
+([![Tests Status](https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml/badge.svg)](https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml))
+![Coverage Status](https://codecov.io/gh/InseeFrLab/pynsee/branch/main/graph/badge.svg)
 
 <!-- [![](https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml/badge.svg)](https://github.com/InseeFrLab/pynsee/actions)
 [![](https://github.com/InseeFrLab/pynsee/actions/workflows/examples.yml/badge.svg)](https://github.com/InseeFrLab/pynsee/actions) -->

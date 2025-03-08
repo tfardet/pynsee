@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import logging

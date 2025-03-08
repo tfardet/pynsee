@@ -1,10 +1,16 @@
-import os
-import pandas as pd
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from functools import lru_cache
 import difflib
 import logging
+import os
 
-from pynsee.download._unzip_pb import _unzip_pb
+import pandas as pd
+
+from ._unzip_pb import _unzip_pb
+
 
 logger = logging.getLogger(__name__)
 

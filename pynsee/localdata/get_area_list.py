@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import pandas as pd
 
-from pynsee.utils.requests_session import PynseeAPISession
-from pynsee.utils._paste import _paste
-from pynsee.utils.save_df import save_df
+from ..utils.requests_session import PynseeAPISession
+from ..utils._paste import _paste
+from ..utils.save_df import save_df
 
 
 @save_df(day_lapse_max=90)

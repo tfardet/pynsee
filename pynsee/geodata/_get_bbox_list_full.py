@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 def _get_bbox_list_full(crs="EPSG:4326"):
 
     if crs == "EPSG:4326":

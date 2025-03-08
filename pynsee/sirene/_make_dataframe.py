@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import pandas as pd
 from tqdm import trange
-from pynsee.utils._make_dataframe_from_dict import _make_dataframe_from_dict
+
+from ..utils._make_dataframe_from_dict import _make_dataframe_from_dict
 
 
 def _make_dataframe(data_request, main_key, query_number):

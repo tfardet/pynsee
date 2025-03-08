@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 INSEE
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # pynsee 0.2.1
 
 **Bugfixes**

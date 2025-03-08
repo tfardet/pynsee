@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from functools import lru_cache
+import importlib
+import logging
 import os
 import re
 import zipfile
+
 import pandas as pd
-import importlib
 
-from pynsee.utils._create_insee_folder import _create_insee_folder
+from ..utils._create_insee_folder import _create_insee_folder
 
-import logging
 
 logger = logging.getLogger(__name__)
 

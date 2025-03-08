@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from functools import lru_cache
+from unidecode import unidecode
 import itertools
 import re
-from unidecode import unidecode
 
-from pynsee.utils.save_df import save_df
+from ..utils.save_df import save_df
 from ._clean_data import _clean_data
 from ._request_sirene import _request_sirene
 from .sirenedataframe import SireneDataFrame

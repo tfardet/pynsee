@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 INSEE
+#
+# SPDX-License-Identifier: CC0-1.0
+
 [flake8]
 extend-ignore = E722,C901,E501
 count = True

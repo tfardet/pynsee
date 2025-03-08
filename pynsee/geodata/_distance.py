@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: Michael0x2a and Peter Mortensen
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
+
 from math import sin, cos, sqrt, atan2, radians
 
 
 def _distance(point1, point2):
-    # see https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
-
     # approximate radius of earth in km
     R = 6373.0
 

@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
-from pynsee.macrodata.get_dataset_list import get_dataset_list
-from pynsee.macrodata.get_series_list import get_series_list
-from pynsee.macrodata.get_series_title import get_series_title
-from pynsee.macrodata.search_macrodata import search_macrodata
+import os
 
 from tqdm import trange
-import os
 import pandas as pd
+
+from .get_dataset_list import get_dataset_list
+from .get_series_list import get_series_list
+from .get_series_title import get_series_title
+from .search_macrodata import search_macrodata
 
 
 def _build_series_list(dt=["CNA-2014-ERE"]):

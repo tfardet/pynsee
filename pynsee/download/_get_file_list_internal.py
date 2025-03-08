@@ -1,7 +1,11 @@
-import io
-import zipfile
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import importlib
+import io
 import json
+import zipfile
 
 
 def _get_file_list_internal():

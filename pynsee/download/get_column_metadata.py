@@ -1,10 +1,16 @@
-import pandas as pd
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import difflib
 import logging
 
-from pynsee.download._get_value_label import _get_value_label
-from pynsee.download._get_dict_data_source import _get_dict_data_source
-from pynsee.utils._move_col_after import _move_col_before
+import pandas as pd
+
+from ..utils._move_col_after import _move_col_before
+from ._get_value_label import _get_value_label
+from ._get_dict_data_source import _get_dict_data_source
+
 
 logger = logging.getLogger(__name__)
 

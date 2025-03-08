@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2023 Alexander C
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# https://stackoverflow.com/a/45669280
+
 import os
 import sys
-
-# source and credits:
-# https://stackoverflow.com/a/45669280
 
 
 class HiddenPrints:

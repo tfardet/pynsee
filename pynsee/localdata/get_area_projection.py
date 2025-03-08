@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
+from functools import lru_cache
+import datetime
+import logging
 
 import pandas as pd
-import datetime
-from functools import lru_cache
 
-from pynsee.utils.requests_session import PynseeAPISession
-from pynsee.utils.save_df import save_df
+from ..utils.requests_session import PynseeAPISession
+from ..utils.save_df import save_df
 
-import logging
 
 logger = logging.getLogger(__name__)
 

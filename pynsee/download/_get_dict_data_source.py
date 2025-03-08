@@ -1,11 +1,15 @@
-import re
-import os
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from functools import lru_cache
-
-from pynsee.download._get_file_list_internal import _get_file_list_internal
-from pynsee.utils.requests_session import PynseeAPISession
-
 import logging
+import os
+import re
+
+from ..utils.requests_session import PynseeAPISession
+from ._get_file_list_internal import _get_file_list_internal
+
 
 logger = logging.getLogger(__name__)
 

@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 """
 Created on Wed Feb  1 13:52:54 2023
 
 @author: thomas.grandjean@developpement-durable.gouv.fr
 """
 
+import logging
+
 import pandas as pd
 
-from pynsee.utils.requests_session import PynseeAPISession
-from pynsee.utils.save_df import save_df
+from ..utils.requests_session import PynseeAPISession
+from ..utils.save_df import save_df
 
-import logging
 
 logger = logging.getLogger(__name__)
 

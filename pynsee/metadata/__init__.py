@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from .get_definition_list import get_definition_list
 from .get_definition import get_definition
 from .get_activity_list import get_activity_list

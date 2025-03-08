@@ -1,10 +1,15 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import json
 import os
 
 import requests
-from pynsee.utils._create_insee_folder import _create_insee_folder
-from pynsee.utils._hash import _hash
-from pynsee.utils._warning_cached_data import _warning_cached_data
+
+from ..utils._create_insee_folder import _create_insee_folder
+from ..utils._hash import _hash
+from ..utils._warning_cached_data import _warning_cached_data
 
 
 def _get_location_openstreetmap(

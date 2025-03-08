@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from .get_area_list import get_area_list
 from .get_geo_list import get_geo_list
 from .get_local_data import get_local_data

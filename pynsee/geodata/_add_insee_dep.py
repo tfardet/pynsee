@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 from tqdm import trange
 from pandas.api.types import CategoricalDtype
 

@@ -1,16 +1,21 @@
-import os
-import re
-from tqdm import trange
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import datetime
+import logging
+import os
 import pickle
+import re
+
+from tqdm import trange
 import pandas as pd
 
-from pynsee.localdata._get_insee_local_onegeo import _get_insee_local_onegeo
-from pynsee.utils._create_insee_folder import _create_insee_folder
-from pynsee.utils._hash import _hash
-from pynsee.utils.HiddenPrints import HiddenPrints
+from ..utils._create_insee_folder import _create_insee_folder
+from ..utils._hash import _hash
+from ..utils.HiddenPrints import HiddenPrints
+from ._get_insee_local_onegeo import _get_insee_local_onegeo
 
-import logging
 
 logger = logging.getLogger(__name__)
 

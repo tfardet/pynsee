@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import pandas as pd
 
-from pynsee.localdata._warning_local_data import _warning_local_data
+from ._warning_local_data import _warning_local_data
 
 
 def get_nivgeo_list():

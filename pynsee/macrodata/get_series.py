@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import pandas
 import math
 
-from pynsee.macrodata._get_insee import _get_insee
-from pynsee.macrodata._add_numeric_metadata import _add_numeric_metadata
-from pynsee.macrodata._load_dataset_data import _load_dataset_data
-
-from pynsee.utils._paste import _paste
-from pynsee.utils.save_df import save_df
+from ..utils._paste import _paste
+from ..utils.save_df import save_df
+from ._get_insee import _get_insee
+from ._add_numeric_metadata import _add_numeric_metadata
+from ._load_dataset_data import _load_dataset_data
 
 
 @save_df(day_lapse_max=30)

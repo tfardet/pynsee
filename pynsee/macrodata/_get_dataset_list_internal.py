@@ -1,9 +1,14 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import io
 import zipfile
 import importlib
+
 import pandas as pd
 
-from pynsee.utils.save_df import save_df
+from ..utils.save_df import save_df
 
 
 @save_df(day_lapse_max=90)

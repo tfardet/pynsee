@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from .geofrdataframe import GeoFrDataFrame
 from .get_geodata import get_geodata

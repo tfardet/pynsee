@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
-import pandas as pd
 from functools import lru_cache
+import logging
 import re
 
-from pynsee.utils.requests_session import PynseeAPISession
-from pynsee.utils._make_dataframe_from_dict import _make_dataframe_from_dict
-from pynsee.utils.HiddenPrints import HiddenPrints
+import pandas as pd
 
+from ..utils.requests_session import PynseeAPISession
+from ..utils._make_dataframe_from_dict import _make_dataframe_from_dict
+from ..utils.HiddenPrints import HiddenPrints
 from .sirenedataframe import SireneDataFrame
-
-import logging
 
 
 logger = logging.getLogger(__name__)

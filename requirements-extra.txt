@@ -1,2 +1,6 @@
+# SPDX-FileCopyrightText: 2025 INSEE
+#
+# SPDX-License-Identifier: CC0-1.0
+
 openpyxl
 xlrd > 2.0

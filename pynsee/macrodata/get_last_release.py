@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import io
 from functools import lru_cache
@@ -9,7 +10,7 @@ import re
 import datetime
 import warnings
 
-from pynsee.utils.requests_session import PynseeAPISession
+from ..utils.requests_session import PynseeAPISession
 
 
 @lru_cache(maxsize=None)

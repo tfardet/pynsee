@@ -1,4 +1,8 @@
-from pynsee.download._get_dict_data_source import _get_dict_data_source
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
+from ._get_dict_data_source import _get_dict_data_source
 
 
 def _get_value_label(id):

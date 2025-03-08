@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
+from requests.exceptions import RequestException
 import pandas as pd
 from tqdm import trange
 import numpy as np
-from requests.exceptions import RequestException
 
-from pynsee.utils._paste import _paste
-from pynsee.localdata._get_geo_relation import _get_geo_relation
-from pynsee.localdata._get_geo_list_simple import _get_geo_list_simple
-
-from pynsee.utils.save_df import save_df
+from ..utils._paste import _paste
+from ..utils.save_df import save_df
+from ._get_geo_relation import _get_geo_relation
+from ._get_geo_list_simple import _get_geo_list_simple
 
 
 @save_df(day_lapse_max=90)

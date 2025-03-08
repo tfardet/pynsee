@@ -1,13 +1,16 @@
-# Copyright : INSEE, 2021
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
-import pandas as pd
+import logging
 import math
 from functools import lru_cache
 
-from pynsee.utils.requests_session import PynseeAPISession
-from pynsee.sirene._make_dataframe import _make_dataframe
+import pandas as pd
 
-import logging
+from ..utils.requests_session import PynseeAPISession
+from ._make_dataframe import _make_dataframe
+
 
 logger = logging.getLogger(__name__)
 

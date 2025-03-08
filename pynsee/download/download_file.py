@@ -1,11 +1,14 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import tempfile
 
 from pandas import DataFrame
 
-from pynsee.download._download_store_file import _download_store_file
-from pynsee.download._load_data_from_schema import _load_data_from_schema
-
-from pynsee.utils.save_df import save_df
+from ..utils.save_df import save_df
+from ._download_store_file import _download_store_file
+from ._load_data_from_schema import _load_data_from_schema
 
 
 @save_df(day_lapse_max=90)

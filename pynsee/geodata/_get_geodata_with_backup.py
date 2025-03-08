@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 from requests import RequestException
 
 from ._find_wfs_closest_match import _find_wfs_closest_match

@@ -1,13 +1,17 @@
-import hashlib
-import warnings
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import difflib
+import hashlib
 import os
 import tempfile
+import warnings
 
-from pynsee.download._download_pb import _download_pb
-from pynsee.download._import_options import _import_options
-from pynsee.download._get_dict_data_source import _get_dict_data_source
-from pynsee.download._check_url import _check_url
+from ._download_pb import _download_pb
+from ._import_options import _import_options
+from ._get_dict_data_source import _get_dict_data_source
+from ._check_url import _check_url
 
 
 def _download_store_file(tempdir: tempfile.TemporaryDirectory, id: str):

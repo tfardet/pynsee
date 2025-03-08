@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 INSEE
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 ## Contributions
 
 All contributions, whatever their forms, are welcome.
@@ -10,7 +16,7 @@ All contributions, whatever their forms, are welcome.
 
 ### Certificate of Origin
 
-By contributing to this project you agree to the Developer Certificate of Origin (DCO). This document was created by the Linux Kernel community and is a simple statement that you, as a contributor, have the legal right to make the contribution. [See the DCO file for details.](DCO.txt)
+By contributing to this project you agree to the Developer Certificate of Origin (DCO). This document was created by the Linux Kernel community and is a simple statement that you, as a contributor, have the legal right to make the contribution. [See the DCO file for details.](https://developercertificate.org/)
 
 Contributors sign-off that they adhere to these requirements by adding a Signed-off-by line to commit messages. For example:
 

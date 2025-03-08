@@ -1,5 +1,10 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 import pandas as pd
-from pynsee.utils._move_col_after import _move_col_before
+
+from ..utils._move_col_after import _move_col_before
 
 
 def _get_A5_activity_label():

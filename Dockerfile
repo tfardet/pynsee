@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 INSEE
+#
+# SPDX-License-Identifier: CC0-1.0
+
 FROM python:3.9-slim-bullseye
 
 RUN apt-get -y update && \

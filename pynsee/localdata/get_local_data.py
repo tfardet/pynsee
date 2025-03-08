@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from functools import lru_cache
-from tqdm import trange
-import pandas as pd
 import numpy as np
+import logging
 import re
 
-from pynsee.localdata._find_latest_local_dataset import (
-    _find_latest_local_dataset,
-)
-from pynsee.localdata._get_insee_local_onegeo import _get_insee_local_onegeo
-from pynsee.localdata.get_geo_list import get_geo_list
-from pynsee.utils.save_df import save_df
+from tqdm import trange
+import pandas as pd
 
-import logging
+from ..utils.save_df import save_df
+from ._find_latest_local_dataset import _find_latest_local_dataset
+from ._get_insee_local_onegeo import _get_insee_local_onegeo
+from .get_geo_list import get_geo_list
+
 
 logger = logging.getLogger(__name__)
 

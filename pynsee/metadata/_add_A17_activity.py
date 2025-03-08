@@ -1,4 +1,8 @@
-from pynsee.utils._move_col_after import _move_col_after
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
+from ..utils._move_col_after import _move_col_after
 
 
 def _add_A17_activity(df):

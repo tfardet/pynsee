@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from functools import lru_cache
 import re
@@ -7,15 +8,13 @@ import zipfile
 import importlib
 import pandas as pd
 
-from pynsee.utils._create_insee_folder import _create_insee_folder
-from pynsee.utils._paste import _paste
-from pynsee.metadata._get_naf import _get_naf
-from pynsee.metadata._get_nomenclature_agreg import _get_nomenclature_agreg
-from pynsee.metadata._add_A17_activity import _add_A17_activity
-from pynsee.metadata._add_A5_activity import (
-    _get_A5_activity_label,
-    _add_A5_activity,
-)
+from ..utils._create_insee_folder import _create_insee_folder
+from ..utils._paste import _paste
+from ._get_naf import _get_naf
+from ._get_nomenclature_agreg import _get_nomenclature_agreg
+from ._add_A17_activity import _add_A17_activity
+from ._add_A5_activity import _get_A5_activity_label, _add_A5_activity
+
 
 import logging
 

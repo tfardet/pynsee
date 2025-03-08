@@ -13,7 +13,7 @@ authors = [
   { name="Thomas Grandjean", email="thomas.grandjean@developpement-durable.gouv.fr" },
   { name="Tanguy Fardet", email="tanguy.fardet@ens-lyon.org" },
 ]
-license = {file = "LICENSE.md"}
+license = {file = "LICENSES/MIT.txt"}
 description = "Tools to Easily Search and Download French Data From INSEE and IGN APIs."
 readme = "README.md"
 keywords = [

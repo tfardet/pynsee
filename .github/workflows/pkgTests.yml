@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 INSEE
+#
+# SPDX-License-Identifier: CC0-1.0
+
 name: pynsee package tests
 
 on:
@@ -46,9 +50,9 @@ jobs:
       env:
         sirene_key: ${{ secrets.SIRENE_KEY }}
       run: |
-        pytest -v --cov -n auto
+        pytest -v --cov=./ --cov-report=xml -n auto
     - name: "Upload coverage to Codecov"
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v5
       if: github.ref == 'refs/heads/master'
       with:
         token: ${{ secrets.CODECOV_TOKEN }}

@@ -1,3 +1,7 @@
+.. SPDX-FileCopyrightText: 2025 INSEE
+..
+.. SPDX-License-Identifier: CC-BY-SA-4.0
+
 .. role:: raw-html(raw)
     :format: html
 

@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from functools import lru_cache
 import logging
 from typing import Union
@@ -10,11 +14,10 @@ from shapely.errors import ShapelyDeprecationWarning
 from tqdm.auto import tqdm
 from unidecode import unidecode
 
-from pynsee.geodata import GeoFrDataFrame
-from pynsee.utils.requests_session import PynseeAPISession
-from ._get_location_openstreetmap import (
-    _get_location_openstreetmap,
-)
+from ..geodata import GeoFrDataFrame
+from ..utils.requests_session import PynseeAPISession
+from ._get_location_openstreetmap import _get_location_openstreetmap
+
 
 logger = logging.getLogger(__name__)
 

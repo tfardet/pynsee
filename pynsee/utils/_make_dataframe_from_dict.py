@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import pandas as pd
 
@@ -33,7 +35,7 @@ def _make_dataframe_from_dict(idata):
         data_from_list = pd.concat(data_from_list).reset_index(drop=True)
 
         list_data_other = []
-        for i in range(len(data_from_list.index)):
+        for i in range(len(data_from_list.index)):  # @todo: improve this
             list_data_other.append(data_other0)
         data_other = pd.concat(list_data_other).reset_index(drop=True)
 

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
-from pynsee.macrodata.get_series import get_series
+from .get_series import get_series
 
 
 def get_series_title(series):

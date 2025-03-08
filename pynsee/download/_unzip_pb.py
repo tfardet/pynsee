@@ -1,9 +1,14 @@
-import zipfile
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from pathlib import Path
-from tqdm.utils import CallbackIOWrapper
-from tqdm import tqdm
 from shutil import copyfileobj
 import os
+import zipfile
+
+from tqdm import tqdm
+from tqdm.utils import CallbackIOWrapper
 
 
 def _unzip_pb(fzip, dest, desc="Extracting"):

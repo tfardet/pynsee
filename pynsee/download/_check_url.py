@@ -1,10 +1,14 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from datetime import date
 import logging
 import re
 
 import requests
 
-from pynsee.utils.requests_session import PynseeAPISession
+from ..utils.requests_session import PynseeAPISession
 
 logger = logging.getLogger(__name__)
 

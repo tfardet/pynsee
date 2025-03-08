@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 import difflib
 
 from pynsee.geodata.get_geodata_list import get_geodata_list

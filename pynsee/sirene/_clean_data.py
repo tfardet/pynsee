@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import pandas as pd
 
-from pynsee.metadata.get_activity_list import get_activity_list
-from pynsee.metadata.get_legal_entity import get_legal_entity
-from pynsee.sirene._employee_metadata import _employee_metadata
-from pynsee.sirene._street_metadata import _street_metadata
-from pynsee.utils._move_col_after import _move_col_after
+from ..metadata.get_activity_list import get_activity_list
+from ..metadata.get_legal_entity import get_legal_entity
+from ..utils._move_col_after import _move_col_after
+from ._employee_metadata import _employee_metadata
+from ._street_metadata import _street_metadata
 
 import logging
 

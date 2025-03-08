@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 import io
 from functools import lru_cache
-import pandas as pd
 import xml.etree.ElementTree as ET
-from tqdm import trange
 
-from pynsee.utils.requests_session import PynseeAPISession
+from tqdm import trange
+import pandas as pd
+
+from ..utils.requests_session import PynseeAPISession
 
 
 @lru_cache(maxsize=None)

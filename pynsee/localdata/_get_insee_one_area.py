@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
 from functools import lru_cache
 import pandas as pd
 
-from pynsee.utils._paste import _paste
-from pynsee.utils.requests_session import PynseeAPISession
-from pynsee.localdata.get_area_list import get_area_list
+from ..utils._paste import _paste
+from ..utils.requests_session import PynseeAPISession
+from .get_area_list import get_area_list
 
 
 @lru_cache(maxsize=None)

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-# Copyright : INSEE, 2021
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
 
-from pynsee.sirene import search_sirene
+from .search_sirene import search_sirene
 
 
 def get_dimension_list(kind="siret"):

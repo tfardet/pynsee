@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from pynsee.geodata import *
 from pynsee.macrodata import *
 from pynsee.localdata import *

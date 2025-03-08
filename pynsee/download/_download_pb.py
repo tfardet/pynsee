@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2021 INSEE
+# SPDX-License-Identifier: MIT
+
 from tqdm import tqdm
 
-
-from pynsee.utils.requests_session import PynseeAPISession
+from ..utils.requests_session import PynseeAPISession
 
 
 def _download_pb(url: str, fname: str, total: int = None):
